@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title %}
+<title>Glyph DLP | Your Account</title>
+{% endblock title %} {% block page_title %}Your Account{% endblock page_title %}
+{% block content %}
+
+<!-- Account Information -->
+<div class="bg-white shadow-lg rounded-lg p-8 mb-6">
+  <h2 class="text-2xl font-bold mb-4 text-gray-700">Account Information</h2>
+
+  <h3 class="text-xl font-semibold mb-2 text-gray-700">Username:</h3>
+  <p class="mb-4 text-gray-700">{{ user_name }}</p>
+
+  <h3 class="text-xl font-semibold mb-2 text-gray-700">Email:</h3>
+  <p class="mb-4 text-gray-700">{{ user_email }}</p>
+
+  <h3 class="text-xl font-semibold mb-2 text-gray-700">API Key:</h3>
+  <p class="mb-4 text-gray-700">{{ api_key }}</p>
+
+  <h3 class="text-xl font-semibold mb-2 text-gray-700">Account type:</h3>
+  <p class="mb-4 text-gray-700">
+    {% if user_max_requests == "20" %} Free/Community {% elif user_max_requests
+    == "200" %} Premium {% elif user_max_requests == "2000" %} Pro {% else %}
+    Custom {% endif %}
+  </p>
+
+  <h3 class="text-xl font-semibold mb-2 text-gray-700">
+    Max requests per day:
+  </h3>
+  <p class="mb-4 text-gray-700">{{ user_max_requests }}</p>
+
+  <h3 class="text-xl font-semibold mb-2 text-gray-700">
+    Manage your subscription:
+  </h3>
+  {% if user_max_requests == "20" %}
+  <div class="mt-4 flex items-center">
+    <a href="/pricing">
+      <button
+        class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Upgrade My Account
+      </button>
+    </a>
+  </div>
+  {% elif user_max_requests != "20" %}
+  <div class="mt-4 flex items-center">
+    <a href="https://billing.stripe.com/p/login/eVa6qBe4a0HG6wo6oo">
+      <button
+        class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Manage My Account
+      </button>
+    </a>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}

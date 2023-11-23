@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}<title>Glyph DLP | Upload</title>{% endblock title %}
+{% block page_title %}Demo{% endblock page_title %}
+{% block head %}
+<script src="https://unpkg.com/htmx.org"></script>
+<script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
+    <style>
+      .custom-code {
+        background-color: #111827; /* Dark background */
+        color: #f8f8f2; /* Light text */
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        font-family: "Fira Code", "Consolas", monospace;
+        white-space: pre-wrap;
+        text-align: left; /* Align text to the left */
+      }
+    </style>
+{% endblock head %}
+
+{% block content %}
+<div class="text-center mb-12">
+<p>
+    Test our API funtion by uploading a file to scan or redact. We do not store any file content or metadata.
+</p>
+    <p class="mt-4">
+        This demo is rate-limited to 2 requests per minute and will only accept files up to 10 MB in size.
+</p>
+  <form
+    class="max-w-md mx-auto my-8"
+    hx-post="/process_file"
+    enctype="multipart/form-data"
+    hx-target="#response"
+    hx-target-error="#any-errors"
+    hx-trigger="submit"
+    hx-vals='javascript:{"#response.innerHTML":"", "#any-errors.innerHTML":""}'
+  >
+    <input
+      id="file_input"
+      type="file"
+      name="file"
+      accept=".txt, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, .json, application/pdf"
+      class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:border-blue-500 focus:ring-blue-500 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+      aria-describedby="file_input_help"
+      required
+    />
+    <p class="mt-4 mb-4 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Accepted file types: TXT, CSV, XLSX, DOCX, JSON, PDF</p>
+    <div class="flex items-center justify-center">
+      <button
+        type="submit"
+        name="action"
+        value="scan"
+        class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Scan
+      </button>
+      <button
+        type="submit"
+        name="action"
+        value="redact"
+        class="ml-4 bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Redact
+      </button>
+    </div>
+  </form>
+
+  <div hx-ext="response-targets">
+    <div class="max-w-4xl mx-auto p-4">
+      <pre id="response" class="custom-code mt-6 hidden overflow-x-auto"></pre>
+    </div>
+    <div class="max-w-4xl mx-auto p-4">
+      <pre id="any-errors" class="custom-code mt-6 hidden overflow-x-auto"></pre>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.body.addEventListener("htmx:beforeRequest", function (event) {
+    var responseElement = document.getElementById("response");
+    var errorElement = document.getElementById("any-errors");
+    if (responseElement) {
+      responseElement.innerText = "";
+      responseElement.classList.add("hidden");
+    }
+    if (errorElement) {
+      errorElement.innerText = "";
+      errorElement.classList.add("hidden");
+    }
+  });
+
+  document.body.addEventListener("htmx:afterSwap", function (event) {
+    var responseElement = document.getElementById("response");
+    var errorElement = document.getElementById("any-errors");
+    if (responseElement && responseElement.innerText.trim() !== "") {
+      responseElement.classList.remove("hidden");
+    }
+    if (errorElement && errorElement.innerText.trim() !== "") {
+      errorElement.classList.remove("hidden");
+    }
+  });
+</script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const fileInput = document.getElementById("file_input");
+    const MAX_FILE_SIZE = 10485760; // 10 MB in bytes
+
+    form.addEventListener("submit", function (event) {
+      const fileSize = fileInput.files[0].size;
+
+      if (fileSize > MAX_FILE_SIZE) {
+        alert("File is too large. Maximum size is 10 MB.");
+        event.preventDefault(); // Prevent form submission
+      }
+    });
+  });
+</script>
+{% endblock content %}

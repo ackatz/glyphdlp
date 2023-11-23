@@ -1,0 +1,171 @@
+{% extends "base.html" %} {% block title %}<title>
+  Glyph DLP | Data Loss Prevention API</title
+>{% endblock title %} {% block page_title %}Introducing Glyph DLP{% endblock
+page_title %} {% block content %}
+<div class="text-center mb-12">
+
+  <p class="text-gray-700">
+
+  </p>
+
+     <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Glyph DLP is a data loss prevention API that can be used to scan or redact sensitive data from documents.</p>
+
+
+<div class="mt-12">
+         <a href="/demo" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 dark:focus:ring-blue-900">
+                Try our demo
+            </a>
+
+      <a href="/register" class="ml-4 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 dark:focus:ring-blue-900">
+                Get started for free
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+
+    </div>
+</div>
+
+
+
+<!-- Three steps on how it works -->
+
+<div class="text-center mb-12">
+  <h1 class="text-4xl font-extrabold mb-4 text-gray-700">How does it work?</h1>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+  <!-- Step 1 -->
+  <div class="border rounded-lg p-6 text-center bg-white shadow-lg">
+    <div class="mb-4 text-gray-700 text-4xl"></div>
+    <div class="flex justify-center">
+      <img
+        src="/app/static/send.svg"
+        class="mb-4"
+        alt="send"
+        height="30"
+        width="30"
+      />
+    </div>
+    <h2 class="font-bold text-xl mb-4">Step 1 | Send an API Call</h2>
+    <p class="text-gray-700">
+      Send Glyph a
+      <a
+        class="text-gray-700 hover:text-gray-900 underline"
+        target="_blank"
+        href="https://developer.mozilla.org/en-US/docs/Glossary/Base64"
+        >Base64-encoded</a
+      >
+      document via our secure REST API (we do <b>NOT</b> track or store any file
+      content or metadata)
+    </p>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="border rounded-lg p-6 text-center bg-white shadow-lg">
+    <div class="mb-4 text-gray-700 text-4xl"></div>
+    <div class="flex justify-center">
+      <img
+        src="/app/static/file-minus.svg"
+        class="mb-4"
+        alt="send"
+        height="30"
+        width="30"
+      />
+    </div>
+    <h2 class="font-bold text-xl mb-4">Step 2 | Scan or Redact</h2>
+    <p class="text-gray-700">
+      Glyph parses your document, with your choice of scanning or redacting
+      sensitive information
+    </p>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="border rounded-lg p-6 text-center bg-white shadow-lg">
+    <div class="mb-4 text-gray-700 text-4xl"></div>
+    <div class="flex justify-center">
+      <img
+        src="/app/static/lock.svg"
+        class="mb-4"
+        alt="send"
+        height="30"
+        width="30"
+      />
+    </div>
+    <h2 class="font-bold text-xl mb-4">Step 3 | Secured</h2>
+    <p class="text-gray-700">
+      Receive the scan results or redacted document, now safer and compliant
+      with your data handling protocols
+    </p>
+  </div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8 mt-16">
+  <!-- Supported File Types -->
+  <div class="border p-6 text-center bg-white rounded-lg shadow-lg">
+    <div class="mb-4 text-gray-700 text-4xl"></div>
+    <div class="flex justify-center">
+      <img
+        src="/app/static/align-right.svg"
+        class="mb-4"
+        alt="send"
+        height="30"
+        width="30"
+      />
+    </div>
+    <h2 class="font-bold text-xl mb-4">Supported File Types</h2>
+    <ul class="list-disc text-left text-gray-700 pl-10">
+      <li>Text file (.txt)</li>
+      <li>Word document (.docx)</li>
+      <li>Excel spreadsheet and CSV (.xlsx, .csv)</li>
+      <li>PDF (.pdf)</li>
+      <li>JSON (.json)</li>
+      <li>
+        See
+        <b
+          ><a
+            href="/docs"
+            class="font-normal text-gray-700 hover:text-gray-900 underline"
+            >our docs</a
+          ></b
+        >
+        for more supported file types
+      </li>
+      <!-- Add more file types here -->
+    </ul>
+  </div>
+
+  <!-- Detections -->
+  <div class="border p-6 text-center bg-white rounded-lg shadow-lg">
+    <div class="mb-4 text-gray-700 text-4xl"></div>
+    <div class="flex justify-center">
+      <img
+        src="/app/static/search.svg"
+        class="mb-4"
+        alt="send"
+        height="30"
+        width="30"
+      />
+    </div>
+    <h2 class="font-bold text-xl mb-4">Supported Detections</h2>
+    <ul class="list-disc text-left text-gray-700 pl-10">
+      <li>Credit card numbers</li>
+      <li>Social security numbers</li>
+      <li>Bank account/routing numbers</li>
+      <li>Date of birth</li>
+      <li>Email addresses</li>
+      <li>
+        See
+        <b
+          ><a
+            href="/docs"
+            class="font-normal text-gray-700 hover:text-gray-900 underline"
+            >our docs</a
+          ></b
+        >
+        for more supported detections
+      </li>
+      <!-- Add more data types here -->
+    </ul>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Glyph DLP provides a data loss prevention API to safeguard your sensitive information. Explore our API services and protect your data."
+    />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/app/static/favicon.ico" type="image/x-icon" />
+
+    <!-- Meta Keywords -->
+    <meta
+      name="keywords"
+      content="Data Loss Prevention, DLP, Glyph DLP, Data Protection, Data Security"
+    />
+
+    <!-- Author Meta -->
+    <meta name="author" content="Glyph DLP" />
+
+    <!-- Open Graph Tags for Facebook and LinkedIn -->
+    <meta
+      property="og:title"
+      content="Glyph DLP: Your Trusted Data Loss Prevention Partner"
+    />
+    <meta
+      property="og:description"
+      content="Glyph DLP provides a data loss prevention API to safeguard your sensitive information. Explore our API services and protect your data."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.glyphdlp.com" />
+    <meta
+      name="image"
+      property="og:image"
+      content="https://www.glyphdlp.com/app/static/logo.png"
+    />
+    <meta property="og:site_name" content="Glyph DLP" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Glyph DLP: Your Trusted Data Loss Prevention Partner"
+    />
+    <meta
+      name="twitter:description"
+      content="Glyph DLP provides a data loss prevention API to safeguard your sensitive information. Explore our API services and protect your data."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.glyphdlp.com/app/static/logo.png"
+    />
+
+    {% block title %}
+    <title>Glyph DLP</title>
+    {% endblock title %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.counter.dev/script.js"
+      data-id="bb924a97-31a1-4dfb-8076-3b1073b0ce8d"
+      data-utcoffset="-7"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+      body.sidebar-open {
+        overflow: hidden;
+      }
+      #sidebar {
+        transition: transform 0.3s ease-in-out;
+        width: 75%;
+        max-width: 300px;
+      }
+      body.sidebar-open #sidebar {
+        transform: translateX(0);
+      }
+      .stippled-bg {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80' viewBox='0 0 40 40'%3E%3Ccircle cx='5' cy='5' r='2' fill='%23999' fill-opacity='0.2'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%23999' fill-opacity='0.2'/%3E%3Ccircle cx='35' cy='35' r='2' fill='%23999' fill-opacity='0.2'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+      }
+      html {
+        overflow-y: scroll;
+      }
+    </style>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F72X9V2PJY');
+</script>
+  {% block head %}{% endblock head %}
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navigation bar -->
+    {% block navbar %}
+    <nav class="stippled-bg bg-white shadow py-6">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+          <!-- Brand name/logo -->
+          <a
+            href="/"
+            class="flex items-center text-2xl font-bold text-gray-700"
+          >
+            <img
+              src="/app/static/logo.png"
+              class="mr-2"
+              alt="Glyph DLP Logo"
+              width="30"
+              height="30"
+            />
+            Glyph DLP
+          </a>
+
+          <!-- Hamburger Icon for Mobile -->
+          <button id="navToggle" class="text-2xl md:hidden">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Sidebar for Mobile -->
+          <nav
+            id="sidebar"
+            class="bg-white shadow fixed inset-y-0 left-0 transform -translate-x-full md:hidden ease-in-out transition-all duration-300 z-30"
+          >
+            <div class="p-4">
+              <a
+                href="/"
+                class="flex items-center text-2xl font-bold text-gray-700"
+              >
+                <img
+                  src="/app/static/logo.png"
+                  class="mb-4"
+                  alt="Glyph DLP Logo"
+                  width="30"
+                  height="30"
+                />
+              </a>
+              <a
+                href="/docs"
+                class="block font-bold text-gray-700 hover:text-gray-900 mb-2"
+                >API</a
+              >
+              <a
+                href="/register"
+                class="block font-bold text-gray-700 hover:text-gray-900 mb-2"
+                >Account</a
+              >
+              <a
+                href="/pricing"
+                class="block font-bold text-gray-700 hover:text-gray-900 mb-2"
+                >Pricing</a
+              >
+              <a
+                href="/contact"
+                class="block font-bold text-gray-700 hover:text-gray-900 mb-2"
+                >Contact</a
+              >
+              <a
+                href="/privacy"
+                class="block font-bold text-gray-700 hover:text-gray-900 mb-2"
+                >Privacy</a
+              >
+            </div>
+          </nav>
+
+          <!-- Navigation links -->
+          <div id="menu" class="hidden md:flex space-x-8">
+            <a href="/docs" class="font-bold text-gray-700 hover:text-gray-900"
+              >API</a
+            >
+            <a
+              href="/register"
+              class="font-bold text-gray-700 hover:text-gray-900"
+              >Account</a
+            >
+            <a
+              href="/pricing"
+              class="block font-bold text-gray-700 hover:text-gray-900 mb-2"
+              >Pricing</a
+            >
+            <a
+              href="/contact"
+              class="font-bold text-gray-700 hover:text-gray-900"
+              >Contact</a
+            >
+
+            <a
+              href="/privacy"
+              class="font-bold text-gray-700 hover:text-gray-900"
+              >Privacy</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% endblock navbar %}
+
+    <!-- Error Message Block -->
+    {% block error_message %}{% endblock %}
+
+    <!-- Main Logo -->
+    {% block logo %}
+    <div class="container mx-auto px-4 py-16">
+      <div class="flex justify-center">
+        <img
+          src="/app/static/logo.png"
+          class="mb-10"
+          alt="Glyph DLP Logo"
+          width="100"
+          height="100"
+        />
+      </div>
+      {% endblock logo %}
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold mb-4 text-gray-700">
+          {% block page_title %}Base{% endblock page_title %}
+        </h1>
+      </div>
+      {% block content %} {% endblock content %}
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="flex justify-center mb-4">
+      <button
+        id="backToTop"
+        class="back-to-top hidden text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Back to Top
+      </button>
+    </div>
+
+    {% block footer %}
+    <footer class="text-gray-700 text-center">
+      <p>&copy; 2023 Glyph DLP LLC. All Rights Reserved.</p>
+    </footer>
+    {% endblock footer %}
+  </body>
+  <script type="text/javascript">
+    function copyToClipboard(id, button) {
+      var copyText = document.getElementById(id).innerText;
+      var textarea = document.createElement("textarea");
+      textarea.value = copyText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+
+      var textSpan = button.querySelector("span");
+      var originalText = textSpan.innerText;
+      textSpan.innerText = "Copied";
+
+      setTimeout(function () {
+        textSpan.innerText = originalText;
+      }, 2000);
+    }
+  </script>
+  <script>
+    document.getElementById("navToggle").addEventListener("click", function () {
+      document.body.classList.toggle("sidebar-open");
+    });
+
+    document.addEventListener("click", function (event) {
+      var isClickInsideSidebar = document
+        .getElementById("sidebar")
+        .contains(event.target);
+      var isClickOnToggle = document
+        .getElementById("navToggle")
+        .contains(event.target);
+
+      if (
+        !isClickInsideSidebar &&
+        !isClickOnToggle &&
+        document.body.classList.contains("sidebar-open")
+      ) {
+        document.body.classList.remove("sidebar-open");
+      }
+    });
+  </script>
+  <script>
+    var backToTopButton = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+        // Show backToTopButton after scrolling down 300px
+        backToTopButton.classList.remove("hidden");
+      } else {
+        backToTopButton.classList.add("hidden");
+      }
+    });
+
+    backToTopButton.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top
+    });
+  </script>
+  <script>
+    // Get the elements
+    var errorMessage = document.getElementById("error-message");
+    var closeButton = document.getElementById("close-button");
+
+    // Check if the elements exist (i.e., if there's an error message)
+    if (errorMessage && closeButton) {
+      // Add an event listener to the close button
+      closeButton.addEventListener("click", function () {
+        // Hide the error message when the close button is clicked
+        errorMessage.style.display = "none";
+      });
+    }
+  </script>
+</html>

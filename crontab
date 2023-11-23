@@ -1,0 +1,1 @@
+0 0 * * * /usr/local/bin/python3 /app/dbo/reset_rate_limit.py >> /app/log/reset_rate_limit.log 2>&1

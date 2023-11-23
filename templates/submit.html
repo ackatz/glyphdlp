@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}<title>
+  Glyph DLP | Your API Key</title
+>{% endblock title %} {% block page_title %}Your API Key{% endblock page_title
+%} {% block content %}
+<div class="text-center mb-12">
+  <!-- Flex container -->
+  <div class="flex items-center justify-center mb-4">
+    <!-- API Key text -->
+    <p class="text-xl">
+      <span id="api_key" class="font-bold">{{api_key}}</span>
+    </p>
+    <!-- Copy button -->
+    <button class="flex items-center ml-4" onclick="copyToClipboard('api_key')">
+      <img width="20" src="/app/static/copy.svg" alt="Copy Icon" />
+    </button>
+  </div>
+  <p class="text-gray-700">
+    It is your responsibility to remember this API key.
+  </p>
+</div>
+{% endblock content %}
